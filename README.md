@@ -1,21 +1,16 @@
-# Radio Meow Live
-Indonesian cat-radio livestream overlay for TikTok LIVE Studio.
+# Halo Meow! — AI Virtual Radio Host
 
-## Files
-- `index.html`: overlay layout and original SVG cat host
-- `styles.css`: neon night-radio styling and CSS animation
-- `app.js`: idle blink, talking mouth state, follow/like/gift hooks
+Brand: HALO MEOW! · Indonesian AI radio host · TikTok LIVE vertical scene.
 
-## Enable GitHub Pages
-1. Open repository Settings → Pages.
-2. Under Build and deployment choose **Deploy from a branch**.
-3. Select branch **main** and folder **/(root)**, then Save.
-4. Wait for the Pages deployment to finish.
+## Production components
+- ai-live/: local Node service that receives TikFinity Event API events, sends chat to an AI chat-completions provider, and speaks Indonesian replies in the browser.
+- ai-live/LIVE2D_LAYER_MAP.md: PSD layer hierarchy, parameter map, motion list and export quality gate.
+- ai-live/README.md: local setup and limitations.
 
-Expected URL: https://kersinw98.github.io/radio-meow-live/
+## Run the AI/event bridge
+Requires Node.js 20+, TikFinity Desktop on the same PC, and an AI provider API key configured privately in .env. See ai-live/README.md. Do not commit secrets.
 
-## Event hooks
-`window.RadioMeow.onChat(text)`, `onFollow()`, `onLike()`, `onGift(name)`, `onSpeechStart()`, `onSpeechEnd()`.
-These are visual hooks only. A separate TikFinity event bridge, AI backend and Indonesian TTS are still required. Do not put API keys or TikTok credentials in this public repository.
+## Live2D status
+The currently available character art is a flattened transparent PNG, not a layered PSD. A genuine Live2D release requires reconstructing separate layers and hidden overlaps, rigging them, then exporting the Cubism runtime files (.moc3, .model3.json, textures, physics and motions). The layer map is included; a finished rig is not yet present.
 
-Start with 720p / 30 FPS. Test in a separate LIVE Studio scene before replacing any existing setup.
+Do not describe this repository as a finished autonomous AI streamer until the model is rigged, the AI provider is configured, TikFinity is connected, and the complete setup has been tested in TikTok LIVE Studio.
